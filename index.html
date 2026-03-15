@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Data Science Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            margin: 5px;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Sections */
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+        
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        /* Projects */
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateX(5px);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .project-tags {
+            margin: 10px 0;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #e1e8ed;
+            color: #2c3e50;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .tag-blue {
+            background: #667eea;
+            color: white;
+        }
+        
+        .project-links {
+            margin-top: 15px;
+        }
+        
+        .project-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 0.95em;
+        }
+        
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        /* Contact */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .contact-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .contact-link i {
+            font-size: 1.2em;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #7f8c8d;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 0;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            section {
+                padding: 25px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- 头像（可选） -->
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar">
+            
+            <!-- 姓名 -->
+            <h1>Evie,Li Xinlu</h1>
+            
+            <!-- 标题 -->
+            <div class="subtitle">
+                Data Science Master's Student | Medical AI | Embedded Systems
+            </div>
+            
+            <!-- 标签 -->
+            <div>
+                <span class="badge"><i class="fas fa-graduation-cap"></i> University of Macau</span>
+                <span class="badge"><i class="fas fa-calendar"></i> Graduating July 2025</span>
+                <span class="badge"><i class="fas fa-map-marker-alt"></i> Macau, China</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section>
+            <h2>👋 About Me</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px;">
+                I'm a Data Science master's student at University of Macau, passionate about deploying AI to solve real-world problems. 
+                My thesis focuses on <strong>real-time French medical speech recognition for drone deployment</strong> in battlefield environments.
+            </p>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">7.0%</div>
+                    <div class="stat-label">Word Error Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50k</div>
+                    <div class="stat-label">Dataset Samples</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Exact Match</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">23x</div>
+                    <div class="stat-label">Keyword Improvement</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Project -->
+        <section>
+            <h2>🚀 Featured Project</h2>
+            
+            <div class="project-card">
+                <div class="project-title">Battlefield Medical French Speech Recognition</div>
+                
+                <div class="project-tags">
+                    <span class="tag tag-blue">PyTorch</span>
+                    <span class="tag tag-blue">ONNX</span>
+                    <span class="tag tag-blue">Raspberry Pi</span>
+                    <span class="tag tag-blue">Whisper</span>
+                    <span class="tag">Speech Recognition</span>
+                    <span class="tag">Embedded AI</span>
+                </div>
+                
+                <p><strong>Master's Thesis · 2024-2025</strong></p>
+                
+                <p style="margin: 15px 0;">
+                    Real-time French medical speech recognition system designed for drone deployment 
+                    in battlefield environments. Achieves state-of-the-art performance in extreme noise conditions.
+                </p>
+                
+                <h4 style="margin: 15px 0 10px 0;">📊 Key Results</h4>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Built <strong>50,000-sample dataset</strong> with 82.8% real drone noise</li>
+                    <li>Achieved <strong>7.0% WER</strong> (21.7% improvement over baseline)</li>
+                    <li><strong>14 out of 21 SNR levels</strong> reached 100% accuracy</li>
+                    <li>Deployed on <strong>Raspberry Pi 4B</strong> with &lt;3s inference time</li>
+                    <li><strong>23x improvement</strong> in keyword recognition</li>
+                </ul>
+                
+                <h4 style="margin: 15px 0 10px 0;">💡 Key Finding</h4>
+                <p>Training on drone noise improved performance on ALL noise types:</p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Helicopter noise: <strong>+7.05%</strong> improvement</li>
+                    <li>Weapon noise: <strong>+5.34%</strong> improvement</li>
+                    <li>Radio noise: <strong>+3.97%</strong> improvement</li>
+                </ul>
+                
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#"><i class="fas fa-video"></i> Demo Video</a>
+                    <a href="#"><i class="fas fa-file-pdf"></i> Thesis Abstract</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Projects -->
+        <section>
+            <h2>📁 Other Projects</h2>
+            
+            <div class="project-card">
+                <div class="project-title">French Healthcare Analytics</div>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">pandas</span>
+                    <span class="tag">geopandas</span>
+                    <span class="tag">folium</span>
+                </div>
+                <p>Geospatial analysis of French medical resources using public health data. Created interactive maps showing regional disparities in healthcare access.</p>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-title">German Medical Sentiment Analysis</div>
+                <div class="project-tags">
+                    <span class="tag">BERT</span>
+                    <span class="tag">Transformers</span>
+                    <span class="tag">NLP</span>
+                </div>
+                <p>Fine-tuned German BERT on 10,000+ patient reviews for sentiment analysis. Achieved 85% accuracy and analyzed COVID-19 impact on patient satisfaction.</p>
+                <div class="project-links">
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h2>🛠️ Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">C++ (basic)</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>ML/DL Frameworks</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">PyTorch</span>
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">Hugging Face</span>
+                        <span class="skill-item">Whisper</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Audio & Deployment</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Librosa</span>
+                        <span class="skill-item">ONNX</span>
+                        <span class="skill-item">Raspberry Pi</span>
+                        <span class="skill-item">Model Quantization</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Chinese (Native)</span>
+                        <span class="skill-item">English (Fluent)</span>
+                        <span class="skill-item">German (Basic)</span>
+                        <span class="skill-item">French (Basic)</span>
+                        <span class="skill-item">Japanese (Basic)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2>🎓 Education</h2>
+            
+            <div style="margin-bottom: 25px;">
+                <h3 style="color: #2c3e50;">University of Macau</h3>
+                <p style="color: #667eea; font-weight: 500;">Master of Science in Data Science and Artificial Intelligence</p>
+                <p>2024 - 2025 (Expected)</p>
+                <p><strong>Thesis:</strong> Battlefield Medical French Speech Recognition for Drone Deployment</p>
+            </div>
+            
+            <div>
+                <h3 style="color: #2c3e50;">South China Agricultural University</h3>
+                <p style="color: #667eea; font-weight: 500;">Bachelor of Engineering in Surveying Engineering</p>
+                <p>2020 - 2024</p>
+                <p>GPA: 3.6/5.0 | Top 30% of Class</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section>
+            <h2>📫 Get in Touch</h2>
+            <p style="text-align: center; margin-bottom: 20px;">
+                I'm actively looking for job opportunities starting July 2025!
+            </p>
+            
+            <div class="contact-links">
+                <a href="#" class="contact-link">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="#" class="contact-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="#" class="contact-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Your Name | Last updated: March 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
